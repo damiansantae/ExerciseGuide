@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#F44336</color>
+    <color name="colorPrimaryDark">#B71C1C</color>
+    <color name="colorAccent">#00BCD4</color>
+    <color name="backGroundColor">#fcfcfc</color>
+    <color name="lightGray">#ededed</color>
+    <color name="darkGray">#616161</color>
+    <color name="deepOrange">#ffa000</color>
+    <color name="deepPurple">#673AB7</color>
+
+
+</resources>
