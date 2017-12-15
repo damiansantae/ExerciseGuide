@@ -9,12 +9,17 @@ public class ExerciseRepository {
     private static ExerciseRepository singleton = null;
     private ArrayList<Exercise> exerciseList;
 
+
     private ExerciseRepository(){
         this.exerciseList = new ArrayList<Exercise>();
-        this.exerciseList.add(new Exercise("abdominales_suspension", "Abdominales Con Piernas En Suspension","abdominales.png",false,2, "abdominales"));
-        this.exerciseList.add(new Exercise("abdominales_suspension", "Abdominales Con Piernas En Suspension","abdominales.png",false,2, "abdominales"));
-        this.exerciseList.add(new Exercise("abdominales_suspension", "Abdominales Con Piernas En Suspension","abdominales.png",false,2, "abdominales"));
-        this.exerciseList.add(new Exercise("abdominales_suspension", "Abdominales Con Piernas En Suspension","abdominales.png",false,2, "abdominales"));
+        this.exerciseList.add(new Exercise("abdominales_suspension", "Abdominales Con Piernas En Suspension","abs",false,1, "abdominales"));
+        this.exerciseList.add(new Exercise("abdominales_suspension", "Abdominales Con Piernas En Suspension","abs",true,2, "abdominales"));
+        this.exerciseList.add(new Exercise("abdominales_suspension", "Abdominales Con Piernas En Suspension","abs",false,3, "abdominales"));
+        this.exerciseList.add(new Exercise("abdominales_suspension", "Abdominales Con Piernas En Suspension","abs",true,4, "abdominales"));
+        this.exerciseList.add(new Exercise("abdominales_suspension", "C mamut","abs",true,0, "pecho"));
+
+
+
 
     }
 
