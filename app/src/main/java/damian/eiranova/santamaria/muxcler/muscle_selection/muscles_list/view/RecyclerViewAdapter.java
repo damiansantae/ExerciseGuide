@@ -1,4 +1,4 @@
-  package damian.eiranova.santamaria.muxcler.muscle_master_list;
+  package damian.eiranova.santamaria.muxcler.muscle_selection.muscles_list.view;
 
   import android.support.v7.widget.RecyclerView;
   import android.view.LayoutInflater;
@@ -41,7 +41,7 @@
       @Override
       public FilaViewHolder onCreateViewHolder(ViewGroup padre, int viewType) {
           View view = LayoutInflater.from(padre.getContext())
-                  .inflate(R.layout.layout_item_maestro, padre, false);
+                  .inflate(R.layout.item_muscle_layout, padre, false);
           return new FilaViewHolder(view);
       }
 

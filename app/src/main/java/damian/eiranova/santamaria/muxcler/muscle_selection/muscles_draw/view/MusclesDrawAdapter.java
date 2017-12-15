@@ -1,4 +1,4 @@
-package damian.eiranova.santamaria.muxcler.muscle_draw;
+package damian.eiranova.santamaria.muxcler.muscle_selection.muscles_draw.view;
 
 
 import android.content.Context;
@@ -13,14 +13,15 @@ import java.util.List;
 import java.util.Set;
 
 import damian.eiranova.santamaria.muxcler.main_activity.view.MainView;
+import damian.eiranova.santamaria.muxcler.muscle_selection.muscles_draw.model.MuscleItem;
 
-public class MusclesAdapter2 extends MapAdapter<MuscleItem> implements ItemClickListener<MuscleItem> {
+public class MusclesDrawAdapter extends MapAdapter<MuscleItem> implements ItemClickListener<MuscleItem> {
 
     private final List<MuscleItem> muscles;
     private Context mContext;
     private Set<MuscleItem> muscleClicked = new HashSet<>();
 
-    public MusclesAdapter2(List<MuscleItem> muscles, Context context) {
+    public MusclesDrawAdapter(List<MuscleItem> muscles, Context context) {
 
         this.muscles = muscles;
         this.mContext = context;

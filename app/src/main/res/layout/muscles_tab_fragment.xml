@@ -24,7 +24,6 @@
     </android.support.design.widget.AppBarLayout>
 
     <include layout="@layout/muscle_selection_fragment"
-
         android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:layout_below="@+id/app_bar"/>

@@ -1,12 +1,12 @@
-package damian.eiranova.santamaria.muxcler.main_activity.prueba_tabs;
+package damian.eiranova.santamaria.muxcler.muscle_selection.muscles_tab_container.view;
 
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import damian.eiranova.santamaria.muxcler.muscle_draw.MusclesDrawActivity;
-import damian.eiranova.santamaria.muxcler.muscle_master_list.view.MuscleMasterListFragment;
+import damian.eiranova.santamaria.muxcler.muscle_selection.muscles_draw.view.MusclesDrawFragment;
+import damian.eiranova.santamaria.muxcler.muscle_selection.muscles_list.view.MuscleMasterListFragment;
 
 
 public class ViewPagerAdapter extends FragmentPagerAdapter {
@@ -27,7 +27,7 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
                 return muscleListFragment;
 
             case 1:
-                return MusclesDrawActivity.newInstance();
+                return MusclesDrawFragment.newInstance();
 
         }
         return null;

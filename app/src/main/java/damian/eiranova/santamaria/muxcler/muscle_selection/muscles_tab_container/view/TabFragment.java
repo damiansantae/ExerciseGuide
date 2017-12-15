@@ -1,4 +1,4 @@
-package damian.eiranova.santamaria.muxcler.main_activity.prueba_tabs;
+package damian.eiranova.santamaria.muxcler.muscle_selection.muscles_tab_container.view;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -10,13 +10,16 @@ import android.view.ViewGroup;
 
 import damian.eiranova.santamaria.muxcler.AppMediador;
 import damian.eiranova.santamaria.muxcler.R;
+import damian.eiranova.santamaria.muxcler.exercise_list.view.ExerciseListFragment;
 import damian.eiranova.santamaria.muxcler.main_activity.view.IMainView;
+import damian.eiranova.santamaria.muxcler.muscle_selection.muscles_tab_container.presenter.MuscleListPresenter;
 
 
-public class TabFragment extends Fragment implements IMainView{
+public class TabFragment extends Fragment implements IMainView {
 
     private AppMediador appMediador;
     private ViewPager mViewPager;
+    private ExerciseListFragment exerciseList;
     private MuscleListPresenter mainPresenter;
     private ViewPagerAdapter mViewPagerAdapter;
     private TabLayout mTabLayout;
@@ -32,8 +35,14 @@ public class TabFragment extends Fragment implements IMainView{
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceSta) {
-        v = inflater.inflate(R.layout.tab_layout, container, false);
+        v = inflater.inflate(R.layout.muscles_tab_fragment, container, false);
         setViewPager();
+        if (v.findViewById(R.id.exercise_list_land) != null) {
+            exerciseList = new ExerciseListFragment();
+            getChildFragmentManager().beginTransaction().add(R.id.exercise_list_land, exerciseList)
+                    .commit();
+
+        }
         return v;
 
     }
@@ -66,7 +75,7 @@ public class TabFragment extends Fragment implements IMainView{
     @Override
     public void onDestroy() {
         super.onDestroy();
-       // appMediador.removeMainPresenter();
+        // appMediador.removeMainPresenter();
     }
 
 

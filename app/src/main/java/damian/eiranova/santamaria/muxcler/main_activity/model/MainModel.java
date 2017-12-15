@@ -23,13 +23,6 @@ public class MainModel implements IMainModel {
         return singleton;
     }
 
-    @Override
-    public void getMuclerListData() {
-        Bundle extras = new Bundle();
-        extras.putSerializable(AppMediador.MUSCLE_LIST_KEY,muscleRepository.getMuscleList());
-        AppMediador.getInstance().sendBroadcast(AppMediador.NOTIFY_DATA_MUSCLELIST_READY,extras);
-
-    }
 
     @Override
     public void getMuclerListData2() {

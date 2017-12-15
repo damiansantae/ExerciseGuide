@@ -1,4 +1,4 @@
-package damian.eiranova.santamaria.muxcler.muscle_draw;
+package damian.eiranova.santamaria.muxcler.muscle_selection.muscles_draw.view;
 
 
 import android.graphics.PointF;
@@ -18,9 +18,10 @@ import java.util.List;
 
 import damian.eiranova.santamaria.muxcler.AppMediador;
 import damian.eiranova.santamaria.muxcler.R;
-import damian.eiranova.santamaria.muxcler.main_activity.prueba_tabs.MuscleListPresenter;
+import damian.eiranova.santamaria.muxcler.muscle_selection.muscles_draw.model.MuscleItem;
+import damian.eiranova.santamaria.muxcler.muscle_selection.muscles_tab_container.presenter.MuscleListPresenter;
 
-public class MusclesDrawActivity extends Fragment {
+public class MusclesDrawFragment extends Fragment {
 
     /**
      * Front view items
@@ -49,8 +50,8 @@ public class MusclesDrawActivity extends Fragment {
 
     private AppMediador appMediador;
 
-    public static MusclesDrawActivity newInstance() {
-        return new MusclesDrawActivity();
+    public static MusclesDrawFragment newInstance() {
+        return new MusclesDrawFragment();
     }
 
     @Override
@@ -73,7 +74,7 @@ public class MusclesDrawActivity extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.prueba, container, false);
+        View v = inflater.inflate(R.layout.muscles_draw_fragment, container, false);
       /*  imageMapViewFront = v.findViewById(R.id.front_side_img);
 
         imageMapViewFront.setAdapter(new MusclesAdapter(pointsFront, this.getContext()));
@@ -127,7 +128,7 @@ public class MusclesDrawActivity extends Fragment {
         }
 
 
-        imageMapViewNew.setAdapter(new MusclesAdapter2(pointsFront, getActivity()));
+        imageMapViewNew.setAdapter(new MusclesDrawAdapter(pointsFront, getActivity()));
 
        /*   pointsBack = new ArrayList<>();
 

@@ -8,13 +8,13 @@ import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v4.content.LocalBroadcastManager;
 
-import damian.eiranova.santamaria.muxcler.exercise_list.ExerciseListFragment;
+import damian.eiranova.santamaria.muxcler.exercise_list.view.ExerciseListFragment;
 import damian.eiranova.santamaria.muxcler.main_activity.presenter.IMainPresenter;
 import damian.eiranova.santamaria.muxcler.main_activity.presenter.MainPresenter;
-import damian.eiranova.santamaria.muxcler.main_activity.prueba_tabs.MuscleListPresenter;
+import damian.eiranova.santamaria.muxcler.muscle_selection.muscles_tab_container.presenter.MuscleListPresenter;
 import damian.eiranova.santamaria.muxcler.main_activity.view.IMainView;
-import damian.eiranova.santamaria.muxcler.muscle_draw.MusclesDrawActivity;
-import damian.eiranova.santamaria.muxcler.muscle_master_list.view.MuscleMasterListFragment;
+import damian.eiranova.santamaria.muxcler.muscle_selection.muscles_draw.view.MusclesDrawFragment;
+import damian.eiranova.santamaria.muxcler.muscle_selection.muscles_list.view.MuscleMasterListFragment;
 
 @SuppressWarnings("rawtypes")
 public class AppMediador extends Application {
@@ -24,7 +24,7 @@ public class AppMediador extends Application {
 	private IMainPresenter mainPresenter;
     private MuscleListPresenter muscleListPresenter;
     private MuscleMasterListFragment musclerListFragment;
-	private MusclesDrawActivity muscleDrawFragment;
+	private MusclesDrawFragment muscleDrawFragment;
 
 	private ExerciseListFragment exerciseListFragment;
     private IMainView mainView;
@@ -138,14 +138,14 @@ public class AppMediador extends Application {
     public void setMusclerListFragment(MuscleMasterListFragment muscleMasterListFragment) {
 	    this.musclerListFragment = muscleMasterListFragment;
     }
-	public void setMuscleDrawFragment(MusclesDrawActivity muscleDrawFragment) {
+	public void setMuscleDrawFragment(MusclesDrawFragment muscleDrawFragment) {
 		this.muscleDrawFragment = muscleDrawFragment;
 	}
     public MuscleMasterListFragment getMusclerListFragment (){
 	    return this.musclerListFragment;
     }
 
-	public MusclesDrawActivity getMuscleDrawFragment (){
+	public MusclesDrawFragment getMuscleDrawFragment (){
 		return this.muscleDrawFragment;
 	}
 

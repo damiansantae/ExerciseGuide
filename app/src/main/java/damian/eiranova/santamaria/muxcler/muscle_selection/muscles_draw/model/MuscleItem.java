@@ -1,4 +1,4 @@
-package damian.eiranova.santamaria.muxcler.muscle_draw;
+package damian.eiranova.santamaria.muxcler.muscle_selection.muscles_draw.model;
 
 import android.graphics.Bitmap;
 import android.graphics.PointF;

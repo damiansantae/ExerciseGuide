@@ -1,4 +1,4 @@
-package damian.eiranova.santamaria.muxcler.exercise_list;
+package damian.eiranova.santamaria.muxcler.exercise_list.view;
 
 
 

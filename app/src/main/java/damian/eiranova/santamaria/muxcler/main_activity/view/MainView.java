@@ -16,10 +16,11 @@ import android.view.View;
 import damian.eiranova.santamaria.muxcler.AppMediador;
 import damian.eiranova.santamaria.muxcler.MuxclerMenuFragment;
 import damian.eiranova.santamaria.muxcler.R;
-import damian.eiranova.santamaria.muxcler.exercise_list.ExerciseListFragment;
+import damian.eiranova.santamaria.muxcler.exercise_detail.ExerciseDetail;
+import damian.eiranova.santamaria.muxcler.exercise_list.view.ExerciseListFragment;
 import damian.eiranova.santamaria.muxcler.main_activity.presenter.IMainPresenter;
-import damian.eiranova.santamaria.muxcler.main_activity.prueba_tabs.TabFragment;
-import damian.eiranova.santamaria.muxcler.muscle_master_list.view.MuscleMasterListFragment;
+import damian.eiranova.santamaria.muxcler.muscle_selection.muscles_tab_container.view.TabFragment;
+import damian.eiranova.santamaria.muxcler.muscle_selection.muscles_list.view.MuscleMasterListFragment;
 
 public class MainView extends AppCompatActivity
         implements IMainView, NavigationView.OnNavigationItemSelectedListener, MuscleMasterListFragment.ListenFragment, ExerciseListFragment.ListenExerciseFragment {
@@ -29,6 +30,7 @@ public class MainView extends AppCompatActivity
     private IMainPresenter mainPresenter;
     private MuscleMasterListFragment fragmentoMaestro;
     private ExerciseListFragment exerciseListFragment;
+    private ExerciseDetail exerciseDetailFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -161,7 +163,7 @@ public class MainView extends AppCompatActivity
     protected void onStart() {
         super.onStart();
         // TODO Solicitar al presentador que recupere los datos desde el modelo.
-        mainPresenter.getMuscleMasterListData();
+
 
     }
 
@@ -169,7 +171,7 @@ public class MainView extends AppCompatActivity
     protected void onResume() {
         super.onResume();
         // TODO Solicitar al presentador que recupere los datos desde el modelo.
-        mainPresenter.getMuscleMasterListData();
+
 
     }
 
@@ -193,8 +195,6 @@ public class MainView extends AppCompatActivity
     @Override
     public void onMuscleSelected(int posicion) {
         loadExerciseListFragment();
-
-
         mainPresenter.getExerciseList(posicion);
     }
 
@@ -208,7 +208,7 @@ public class MainView extends AppCompatActivity
         if (exerciseListFragment == null) {
             exerciseListFragment = new ExerciseListFragment();
 
-            if (findViewById(R.id.main_fragment_container) != null) {
+            if (findViewById(R.id.exercise_list_land) == null) {
                 // se crea el fragmento maestro y se añade al contenedor de fragmentos
                 //fragmentoMaestro = new MuscleMasterListFragment();
 
@@ -224,21 +224,21 @@ public class MainView extends AppCompatActivity
 
     public void onExerciseClicked(int posicion) {
 
-   /*     if (exerciseListFragment == null) {
-            exerciseListFragment = new ExerciseListFragment();
+       if (exerciseDetailFragment == null) {
+            exerciseDetailFragment = new ExerciseDetail();
 
             if (findViewById(R.id.main_fragment_container) != null) {
                 // se crea el fragmento maestro y se añade al contenedor de fragmentos
                 //fragmentoMaestro = new MuscleMasterListFragment();
 
                 getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.main_fragment_container, exerciseListFragment)
+                        .replace(R.id.main_fragment_container, exerciseDetailFragment)
                         .addToBackStack(null)
                         .commit();
                 getSupportFragmentManager().executePendingTransactions();
 
             }
-        }*/
+        }
     }
 
     public void showConfirmationSnack(final String muscleName) {

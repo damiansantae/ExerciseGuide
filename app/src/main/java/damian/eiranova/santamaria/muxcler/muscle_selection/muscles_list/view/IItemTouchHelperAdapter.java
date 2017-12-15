@@ -1,4 +1,4 @@
-package damian.eiranova.santamaria.muxcler.muscle_master_list;
+package damian.eiranova.santamaria.muxcler.muscle_selection.muscles_list.view;
 
 
 

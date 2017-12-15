@@ -1,4 +1,4 @@
-package damian.eiranova.santamaria.muxcler.muscle_master_list.view;
+package damian.eiranova.santamaria.muxcler.muscle_selection.muscles_list.view;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -10,8 +10,6 @@ import android.view.ViewGroup;
 
 import damian.eiranova.santamaria.muxcler.AppMediador;
 import damian.eiranova.santamaria.muxcler.R;
-import damian.eiranova.santamaria.muxcler.muscle_master_list.RecyclerViewAdapter;
-import damian.eiranova.santamaria.muxcler.muscle_master_list.SimpleItemTouchHelperCallback;
 
 public class MuscleMasterListFragment extends android.support.v4.app.Fragment
         implements RecyclerViewAdapter.SeleccionListener {
@@ -39,7 +37,7 @@ public class MuscleMasterListFragment extends android.support.v4.app.Fragment
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.activity_fragmento_maestro, container, false);
+        View v = inflater.inflate(R.layout.muscles_list_fragment, container, false);
         recyclerView = (RecyclerView) v.findViewById(R.id.master_list);
         return v;
     }

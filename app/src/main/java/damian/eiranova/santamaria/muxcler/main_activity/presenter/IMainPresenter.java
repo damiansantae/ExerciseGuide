@@ -3,7 +3,7 @@ package damian.eiranova.santamaria.muxcler.main_activity.presenter;
 public interface IMainPresenter {
 	
 	// TODO Añadir el método obtenerDatos() de tipo void que solicita los datos de la lista maestro al modelo.
-    void getMuscleMasterListData();
+    //void getMuscleMasterListData();
 
     void getExerciseList(int posicion);
 

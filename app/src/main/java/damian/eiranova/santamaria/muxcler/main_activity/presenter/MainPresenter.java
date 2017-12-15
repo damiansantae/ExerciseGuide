@@ -48,11 +48,7 @@ public class MainPresenter implements IMainPresenter {
         }
     };
 
-    @Override
-    public void getMuscleMasterListData() {
-        AppMediador.getInstance().registerReceiver(notificationReceiver, AppMediador.NOTIFY_DATA_MUSCLELIST_READY);
-        mainModel.getMuclerListData();
-    }
+
 
     @Override
     public void getExerciseList(int posicion) {

@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="damian.eiranova.santamaria.muxcler">
 
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:name=".AppMediador"
         android:allowBackup="true"
