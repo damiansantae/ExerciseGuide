@@ -19,28 +19,26 @@ public class ExerciseListFragment extends Fragment implements RecyclerViewExerci
     private ListenExerciseFragment listener;
 
 
-
-
-	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-	    View v = inflater.inflate(R.layout.exercise_list_fragment, container, false);
+        View v = inflater.inflate(R.layout.exercise_list_fragment, container, false);
         recyclerView = (RecyclerView) v.findViewById(R.id.exercise_list);
         return v;
 
     }
-	
-	@Override
-	public void onActivityCreated(Bundle savedInstanceState) {
-		super.onActivityCreated(savedInstanceState);
-	/*	nombreReceta = (TextView) getView().findViewById(R.id.nombreReceta);
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+    /*	nombreReceta = (TextView) getView().findViewById(R.id.nombreReceta);
 		imagenDeReceta = (ImageView) getView().findViewById(R.id.imagenDeReceta);
 		infoReceta = (TextView) getView().findViewById(R.id.infoReceta);*/
 
 
         AppMediador appMediador = (AppMediador) this.getActivity().getApplication();
         appMediador.setExerciseListFragment(this);
-	}
+    }
 
     @Override
     public void onAttach(Context context) {
@@ -64,7 +62,7 @@ public class ExerciseListFragment extends Fragment implements RecyclerViewExerci
             return;
         }
         // crea un adaptador
-        RecyclerViewExerciseAdapter adapter = new RecyclerViewExerciseAdapter(data, this);
+        RecyclerViewExerciseAdapter adapter = new RecyclerViewExerciseAdapter(data, this, this);
         recyclerView.setAdapter(adapter);
         if (data != null && data.length != 0) {
             ItemTouchHelper.Callback callback = new SimpleItemTouchHelperCallback(adapter);
@@ -79,12 +77,12 @@ public class ExerciseListFragment extends Fragment implements RecyclerViewExerci
     }
 
     @Override
-    public void onClick(RecyclerViewExerciseAdapter.FilaViewHolder fvh, int posicion) {
-	    listener.onExerciseClicked(posicion);
+    public void onClick(RecyclerViewExerciseAdapter.FilaViewHolder fvh, String posicion) {
+        listener.onExerciseClicked(posicion);
 
     }
 
     public interface ListenExerciseFragment {
-        void onExerciseClicked(int posicion);
+        void onExerciseClicked(String posicion);
     }
 }

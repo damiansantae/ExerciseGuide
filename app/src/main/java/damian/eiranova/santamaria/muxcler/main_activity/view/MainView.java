@@ -101,6 +101,11 @@ public class MainView extends AppCompatActivity
                 getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment_container, tabFragment)
                         .addToBackStack(null)
                         .commit();
+            } else if (findViewById(R.id.exercise_detail) != null && findViewById(R.id.exercise_detail).getVisibility() == View.VISIBLE) {
+                exerciseDetailFragment = null;
+                loadExerciseListFragment();
+                mainPresenter.getExerciseListOfCurrentMuscle();
+
             } else {
                 finish();
             }
@@ -201,33 +206,18 @@ public class MainView extends AppCompatActivity
     public void onMuscleClicked(String name) {
         loadExerciseListFragment();
         mainPresenter.getExerciseListOfMuscle(name);
-
     }
 
-    private void loadExerciseListFragment() {
-        if (exerciseListFragment == null) {
-            exerciseListFragment = new ExerciseListFragment();
-
-            if (findViewById(R.id.exercise_list_land) == null) {
-                // se crea el fragmento maestro y se añade al contenedor de fragmentos
-                //fragmentoMaestro = new MuscleMasterListFragment();
-
-                getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.main_fragment_container, exerciseListFragment)
-                        .addToBackStack(null)
-                        .commit();
-                getSupportFragmentManager().executePendingTransactions();
-
-            }
-        }
+    public void onExerciseClicked(String name) {
+        loadExerciseDetailFragment();
+        mainPresenter.getExerciseDetail(name);
     }
 
-    public void onExerciseClicked(int posicion) {
-
-       if (exerciseDetailFragment == null) {
+    private void loadExerciseDetailFragment() {
+        if (exerciseDetailFragment == null) {
             exerciseDetailFragment = new ExerciseDetail();
 
-            if (findViewById(R.id.main_fragment_container) != null) {
+            if (findViewById(R.id.exercise_detail_land) == null) {
                 // se crea el fragmento maestro y se añade al contenedor de fragmentos
                 //fragmentoMaestro = new MuscleMasterListFragment();
 
@@ -240,6 +230,25 @@ public class MainView extends AppCompatActivity
             }
         }
     }
+
+    private void loadExerciseListFragment() {
+        if (exerciseListFragment == null) {
+            exerciseListFragment = new ExerciseListFragment();
+        }
+            if (findViewById(R.id.exercise_list_land) == null) {
+                // se crea el fragmento maestro y se añade al contenedor de fragmentos
+                //fragmentoMaestro = new MuscleMasterListFragment();
+
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.main_fragment_container, exerciseListFragment)
+                        .addToBackStack(null)
+                        .commit();
+                getSupportFragmentManager().executePendingTransactions();
+
+            }
+
+    }
+
 
     public void showConfirmationSnack(final String muscleName) {
         Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content), "Desea visualizar ejercicios para " + muscleName + "?", 10000)

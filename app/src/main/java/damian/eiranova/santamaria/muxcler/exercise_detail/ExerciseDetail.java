@@ -14,19 +14,20 @@ import com.google.android.youtube.player.YouTubePlayerSupportFragment;
 import damian.eiranova.santamaria.muxcler.AppMediador;
 import damian.eiranova.santamaria.muxcler.Config;
 import damian.eiranova.santamaria.muxcler.R;
+import damian.eiranova.santamaria.muxcler.exercise_list.model.Exercise;
 
 
 public class ExerciseDetail extends Fragment implements YouTubePlayer.OnInitializedListener {
 
     private static final int RECOVERY_REQUEST = 1;
     private YouTubePlayerSupportFragment youTubePlayerFragment;
+    private String videoUrl;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.exercise_detail, container, false);
         youTubePlayerFragment = (YouTubePlayerSupportFragment) getChildFragmentManager().findFragmentById(R.id.video_fragment);
-        loadVideo();
         return v;
 
     }
@@ -40,7 +41,7 @@ public class ExerciseDetail extends Fragment implements YouTubePlayer.OnInitiali
 
 
         AppMediador appMediador = (AppMediador) this.getActivity().getApplication();
-        //appMediador.setExerciseListFragment(this);
+        appMediador.setExerciseDetailFragment(this);
     }
 
 
@@ -51,7 +52,7 @@ public class ExerciseDetail extends Fragment implements YouTubePlayer.OnInitiali
     @Override
     public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean wasRestored) {
         if(!wasRestored){
-            youTubePlayer.loadVideo("3LiubyYpEUk");
+            youTubePlayer.loadVideo(this.videoUrl);
         }
 
     }
@@ -66,4 +67,10 @@ public class ExerciseDetail extends Fragment implements YouTubePlayer.OnInitiali
         }
     }
 
+    public void UpdateExerciseDetail(Exercise exercise) {
+        this.videoUrl = exercise.getExerciseVideoUrl();
+        loadVideo();
+
+
+    }
 }

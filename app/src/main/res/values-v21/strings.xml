@@ -1,16 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">XPORT</string>
-
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-
-    <string name="action_settings">Settings</string>
-
-    <string name="player_error">Error iniciand video: %s</string>
-    <string name="seek_to">Saltar a  </string>
-    <string name="seek_to_hint">Segundos</string>
-
-    <string name="exercise_description_dummy">Lorem ipsum dolor sit amet, consectetur adipiscing
+    <string name="exercise_description_dummy">
+        Lorem ipsum dolor sit amet, consectetur adipiscing
     elit. Praesent sollicitudin ligula ut hendrerit euismod. Aenean in porttitor erat. Suspendisse
     vitae orci magna. Nulla maximus elit sed velit iaculis eleifend. Proin at arcu ut massa
     tristique molestie non ut purus. Fusce ac interdum purus, in tempor massa. Fusce malesuada

@@ -9,6 +9,7 @@ public class ExerciseListModel {
 
     private static ExerciseListModel singleton = null;
     private ExerciseRepository exerciseRepository;
+    private String muscleID;
     private String[] starImages = new String[5];
     private String[] machineImages = new String[2];
 
@@ -17,6 +18,7 @@ public class ExerciseListModel {
 
 
     private ExerciseListModel() {
+        this.muscleID = null;
         exerciseRepository = ExerciseRepository.getInstance();
         starImages[0] = "star0";
         starImages[1] = "star1";
@@ -38,6 +40,7 @@ public class ExerciseListModel {
 
 
     public void getExerciseListData(String muscleID) {
+        this.muscleID = muscleID;
         Bundle extras = new Bundle();
         extras.putSerializable(AppMediador.EXERCISE_LIST_KEY, exerciseRepository.getExerciseList(muscleID));
         AppMediador.getInstance().sendBroadcast(AppMediador.NOTIFY_DATA_EXERCISE_LIST_READY, extras);
@@ -67,5 +70,21 @@ public class ExerciseListModel {
         } else {
             return machineImages[NO_NEED_MACHINE];
         }
+    }
+
+    public void getExerciseDetail(String name) {
+        Bundle extras = new Bundle();
+
+        extras.putSerializable(AppMediador.EXERCISE_DETAIL_KEY, exerciseRepository.getExerciseDetail(name));
+        AppMediador.getInstance().sendBroadcast(AppMediador.NOTIFY_DETAIL_DATA_EXERCISE_READY, extras);
+
+    }
+
+
+    public void getExerciseListDataOfCurrentMuscle() {
+        Bundle extras = new Bundle();
+        extras.putSerializable(AppMediador.EXERCISE_LIST_KEY, exerciseRepository.getExerciseList(muscleID));
+        AppMediador.getInstance().sendBroadcast(AppMediador.NOTIFY_DATA_EXERCISE_LIST_READY, extras);
+
     }
 }

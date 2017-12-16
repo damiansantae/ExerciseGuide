@@ -9,6 +9,10 @@ public interface IMainPresenter {
 
     void getExerciseListOfMuscle(String name);
 
+    void getExerciseDetail(String name);
+
+    void getExerciseListOfCurrentMuscle();
+
 
     // TODO Añadir el método obtenerDetalles() que recupera los datos de una receta dada su posición
 	// en la lista maestro.

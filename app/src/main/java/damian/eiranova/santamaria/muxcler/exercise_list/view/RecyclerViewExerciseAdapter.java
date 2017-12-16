@@ -41,7 +41,7 @@ public class RecyclerViewExerciseAdapter extends RecyclerView.Adapter<RecyclerVi
 
 
     public interface SelectionListener {
-        public void onClick(FilaViewHolder fvh, int posicion);
+        public void onClick(FilaViewHolder fvh, String posicion);
     }
 
     @Override
@@ -101,7 +101,7 @@ public class RecyclerViewExerciseAdapter extends RecyclerView.Adapter<RecyclerVi
                 @Override
                 public void onClick(View view) {
 
-                    listener.onClick(FilaViewHolder.this, getAdapterPosition());
+                    listener.onClick(FilaViewHolder.this, exerciseName.getText().toString());
 
                 }
             });

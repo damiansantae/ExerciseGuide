@@ -10,12 +10,13 @@ public class Exercise implements Serializable {
     private String exerciseImage;
     private boolean needMachine;
     private String muscleID;
+    private String exerciseVideoUrl;
 
 
 
     private int difficulty;
 
-    public Exercise(String exerciseID, String exerciseName, String exerciseImage, boolean needMachine,int difficulty, String muscleID) {
+    public Exercise(String exerciseID, String exerciseName, String exerciseImage, boolean needMachine,int difficulty, String muscleID, String exerciseVideoUrl) {
         super();
         this.exerciseID = exerciseID;
         this.exerciseName = exerciseName;
@@ -23,6 +24,7 @@ public class Exercise implements Serializable {
         this.needMachine = needMachine;
         this.difficulty= difficulty;
         this.muscleID = muscleID;
+        this.exerciseVideoUrl = exerciseVideoUrl;
     }
 
     public String getExerciseID() {
@@ -60,4 +62,7 @@ public class Exercise implements Serializable {
         return  this.muscleID;
     }
 
+    public String getExerciseVideoUrl() {
+        return this.exerciseVideoUrl;
+    }
 }

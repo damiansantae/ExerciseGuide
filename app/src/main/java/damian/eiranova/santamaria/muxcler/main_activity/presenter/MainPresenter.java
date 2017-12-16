@@ -44,10 +44,12 @@ public class MainPresenter implements IMainPresenter {
                     data[i] = exerciseList.get(i);
                 }
                 AppMediador.getInstance().getExerciseListFragment().UpdateExerciseList(data);
+            }else if (intent.getAction().equals(AppMediador.NOTIFY_DETAIL_DATA_EXERCISE_READY)){
+                Exercise exercise = (Exercise) intent.getSerializableExtra(AppMediador.EXERCISE_DETAIL_KEY);
+                AppMediador.getInstance().getExerciseDetailFragment().UpdateExerciseDetail(exercise);
             }
         }
     };
-
 
 
     @Override
@@ -60,12 +62,24 @@ public class MainPresenter implements IMainPresenter {
     @Override
     public void getExerciseListOfMuscle(String name) {
         AppMediador.getInstance().registerReceiver(notificationReceiver, AppMediador.NOTIFY_DATA_EXERCISE_LIST_READY);
-        for (Muscle muscle:MuscleRepository.getInstance().getMuscleList()
-             ) {
-            if (muscle.getMuscleName().equals(name)){
+        for (Muscle muscle : MuscleRepository.getInstance().getMuscleList()
+                ) {
+            if (muscle.getMuscleName().equals(name)) {
                 exerciseModel.getExerciseListData(muscle.getMuscleID());
                 break;
             }
         }
+    }
+
+    @Override
+    public void getExerciseDetail(String name) {
+        AppMediador.getInstance().registerReceiver(notificationReceiver, AppMediador.NOTIFY_DETAIL_DATA_EXERCISE_READY);
+        exerciseModel.getExerciseDetail(name);
+    }
+
+    @Override
+    public void getExerciseListOfCurrentMuscle() {
+        exerciseModel.getExerciseListDataOfCurrentMuscle();
+
     }
 }
