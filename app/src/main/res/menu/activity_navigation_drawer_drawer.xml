@@ -4,42 +4,42 @@
     tools:showIn="navigation_view">
 
 
-   <item  android:title="MuXcler" >
-       <menu>
+    <item android:title="MuXcler">
+        <menu>
 
-               <item
-                   android:id="@+id/nav_guide"
-                   android:icon="@drawable/ic_menu_camera"
-                   android:title="Guía" />
-               <item
-                   android:id="@+id/nav_gallery"
-                   android:icon="@drawable/ic_menu_gallery"
-                   android:title=" Buscar Gimnasios" />
+            <item
+                android:id="@+id/nav_guide"
+                android:icon="@drawable/upper_chest_training"
+                android:title="Guía" />
+            <item
+                android:id="@+id/nav_gallery"
+                android:icon="@android:drawable/ic_dialog_map"
+                android:title=" Buscar Gimnasios" />
 
-       </menu>
+        </menu>
 
 
-   </item>
-    <item android:title="XRunner" >
-      <menu>
-          <item
-              android:id="@+id/navnav"
-              android:icon="@drawable/ic_menu_camera"
-              android:title="kms Ranking" />
-          <item
-              android:id="@+id/navnavanava"
-              android:icon="@drawable/ic_menu_gallery"
-              android:title="Buscar ruta" />
-          <item
-              android:id="@+id/naannananaana"
-              android:icon="@drawable/ic_menu_slideshow"
-              android:title="Empezar a correr" />
-          <item
-              android:id="@+id/njanjanka"
-              android:icon="@drawable/ic_menu_manage"
-              android:title="Estadísticas" />
+    </item>
+    <item android:title="XRunner">
+        <menu>
+            <item
+                android:id="@+id/navnav"
+                android:icon="@drawable/ranking_cup"
+                android:title="kms Ranking" />
+            <item
+                android:id="@+id/navnavanava"
+                android:icon="@drawable/car_race_circuit"
+                android:title="Buscar ruta" />
+            <item
+                android:id="@+id/naannananaana"
+                android:icon="@drawable/running"
+                android:title="Empezar a correr" />
+            <item
+                android:id="@+id/njanjanka"
+                android:icon="@drawable/bar_chart"
+                android:title="Estadísticas" />
 
-      </menu>
+        </menu>
 
 
     </item>

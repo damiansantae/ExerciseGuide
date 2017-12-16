@@ -16,6 +16,7 @@ import damian.eiranova.santamaria.muxcler.muscle_selection.muscles_tab_container
 import damian.eiranova.santamaria.muxcler.main_activity.view.IMainView;
 import damian.eiranova.santamaria.muxcler.muscle_selection.muscles_draw.view.MusclesDrawFragment;
 import damian.eiranova.santamaria.muxcler.muscle_selection.muscles_list.view.MuscleMasterListFragment;
+import damian.eiranova.santamaria.muxcler.muscle_selection.muscles_tab_container.view.TabFragment;
 
 @SuppressWarnings("rawtypes")
 public class AppMediador extends Application {
@@ -30,7 +31,7 @@ public class AppMediador extends Application {
     private ExerciseListFragment exerciseListFragment;
     private ExerciseDetail exerciseDetailFragment;
     private IMainView mainView;
-    private IMainView muscleView;
+    private TabFragment muscleView;
 
     // constantes de comunicación, almacenamiento y petición
     public static final String MUSCLE_LIST_KEY = "muscleList";
@@ -68,7 +69,7 @@ public class AppMediador extends Application {
         return mainView;
     }
 
-    public IMainView getMuscleView() {
+    public TabFragment getMuscleView() {
         return muscleView;
     }
 
@@ -76,7 +77,7 @@ public class AppMediador extends Application {
         this.mainView = mainView;
     }
 
-    public void setMuscleView(IMainView muscleView) {
+    public void setMuscleView(TabFragment muscleView) {
         this.muscleView = muscleView;
     }
     // Métodos destinados a la navegación en la aplicación y a la definición de servicios

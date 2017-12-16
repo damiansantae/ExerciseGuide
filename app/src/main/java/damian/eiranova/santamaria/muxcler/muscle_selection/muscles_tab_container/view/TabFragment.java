@@ -10,16 +10,17 @@ import android.view.ViewGroup;
 
 import damian.eiranova.santamaria.muxcler.AppMediador;
 import damian.eiranova.santamaria.muxcler.R;
+import damian.eiranova.santamaria.muxcler.exercise_detail.ExerciseDetail;
 import damian.eiranova.santamaria.muxcler.exercise_list.view.ExerciseListFragment;
-import damian.eiranova.santamaria.muxcler.main_activity.view.IMainView;
 import damian.eiranova.santamaria.muxcler.muscle_selection.muscles_tab_container.presenter.MuscleListPresenter;
 
 
-public class TabFragment extends Fragment implements IMainView {
+public class TabFragment extends Fragment {
 
     private AppMediador appMediador;
     private ViewPager mViewPager;
     private ExerciseListFragment exerciseList;
+    private ExerciseDetail exerciseDetail;
     private MuscleListPresenter mainPresenter;
     private ViewPagerAdapter mViewPagerAdapter;
     private TabLayout mTabLayout;
@@ -40,6 +41,9 @@ public class TabFragment extends Fragment implements IMainView {
         if (v.findViewById(R.id.exercise_list_land) != null) {
             exerciseList = new ExerciseListFragment();
             getChildFragmentManager().beginTransaction().add(R.id.exercise_list_land, exerciseList)
+                    .commit();
+            exerciseDetail = new ExerciseDetail();
+            getChildFragmentManager().beginTransaction().add(R.id.exercise_detail_land, exerciseDetail)
                     .commit();
 
         }
@@ -79,8 +83,4 @@ public class TabFragment extends Fragment implements IMainView {
     }
 
 
-    @Override
-    public void UpdateMasterMuscleList(Object object) {
-
-    }
 }

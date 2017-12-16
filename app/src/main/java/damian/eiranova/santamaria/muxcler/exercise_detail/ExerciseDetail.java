@@ -36,7 +36,7 @@ public class ExerciseDetail extends Fragment implements YouTubePlayer.OnInitiali
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
     /*	nombreReceta = (TextView) getView().findViewById(R.id.nombreReceta);
-		imagenDeReceta = (ImageView) getView().findViewById(R.id.imagenDeReceta);
+        imagenDeReceta = (ImageView) getView().findViewById(R.id.imagenDeReceta);
 		infoReceta = (TextView) getView().findViewById(R.id.infoReceta);*/
 
 
@@ -46,12 +46,15 @@ public class ExerciseDetail extends Fragment implements YouTubePlayer.OnInitiali
 
 
     private void loadVideo() {
+
+
         youTubePlayerFragment.initialize(Config.YOUTUBE_API_KEY, this);
     }
 
     @Override
     public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean wasRestored) {
-        if(!wasRestored){
+        youTubePlayer.setFullscreenControlFlags(YouTubePlayer.FULLSCREEN_FLAG_CUSTOM_LAYOUT);
+        if (!wasRestored) {
             youTubePlayer.loadVideo(this.videoUrl);
         }
 

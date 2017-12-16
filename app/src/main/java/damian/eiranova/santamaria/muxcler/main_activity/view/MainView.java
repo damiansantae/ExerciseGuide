@@ -89,26 +89,39 @@ public class MainView extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else if (findViewById(R.id.main_fragment_container) != null) {
+            if (findViewById(R.id.muxcler_menu) == null) {
 
-            if (findViewById(R.id.exercise_list) != null && findViewById(R.id.exercise_list).getVisibility() == View.VISIBLE) {
-                exerciseListFragment = null;
+                if (findViewById(R.id.exercise_list_land) != null) {
+                    MuxclerMenuFragment musclerMenuFragment = new MuxclerMenuFragment();
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.main_fragment_container, musclerMenuFragment)
+                            .commit();
+                } else if (findViewById(R.id.exercise_list) != null && findViewById(R.id.exercise_list).getVisibility() == View.VISIBLE) {
+                    exerciseListFragment = null;
 
-                Fragment tabFragment = new TabFragment();
-                getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment_container, tabFragment)
-                        .addToBackStack(null)
-                        .commit();
-            } else if (findViewById(R.id.exercise_detail) != null && findViewById(R.id.exercise_detail).getVisibility() == View.VISIBLE) {
-                exerciseDetailFragment = null;
-                loadExerciseListFragment();
-                mainPresenter.getExerciseListOfCurrentMuscle();
+                    Fragment tabFragment = new TabFragment();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment_container, tabFragment)
+                            .addToBackStack(null)
+                            .commit();
+                } else if (findViewById(R.id.exercise_detail) != null && findViewById(R.id.exercise_detail).getVisibility() == View.VISIBLE) {
+                    exerciseDetailFragment = null;
+                    loadExerciseListFragment();
+                    mainPresenter.getExerciseListOfCurrentMuscle();
 
+                } else {
+                    MuxclerMenuFragment musclerMenuFragment = new MuxclerMenuFragment();
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.main_fragment_container, musclerMenuFragment)
+                            .commit();
+                }
             } else {
                 finish();
             }
+
         } else {
             finish();
         }
@@ -162,6 +175,16 @@ public class MainView extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void loadTabFragment() {
+        exerciseListFragment = null;
+        Fragment tabFragment = new TabFragment();
+        getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment_container, tabFragment)
+                .addToBackStack(null)
+                .commit();
+
     }
 
     @Override
@@ -235,17 +258,17 @@ public class MainView extends AppCompatActivity
         if (exerciseListFragment == null) {
             exerciseListFragment = new ExerciseListFragment();
         }
-            if (findViewById(R.id.exercise_list_land) == null) {
-                // se crea el fragmento maestro y se añade al contenedor de fragmentos
-                //fragmentoMaestro = new MuscleMasterListFragment();
+        if (findViewById(R.id.exercise_list_land) == null) {
+            // se crea el fragmento maestro y se añade al contenedor de fragmentos
+            //fragmentoMaestro = new MuscleMasterListFragment();
 
-                getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.main_fragment_container, exerciseListFragment)
-                        .addToBackStack(null)
-                        .commit();
-                getSupportFragmentManager().executePendingTransactions();
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.main_fragment_container, exerciseListFragment)
+                    .addToBackStack(null)
+                    .commit();
+            getSupportFragmentManager().executePendingTransactions();
 
-            }
+        }
 
     }
 
