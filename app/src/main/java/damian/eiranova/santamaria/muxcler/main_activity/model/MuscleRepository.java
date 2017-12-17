@@ -10,11 +10,11 @@ public class MuscleRepository {
 
     private MuscleRepository() {
         this.muscleList = new ArrayList<Muscle>();
-        this.muscleList.add(new Muscle("abdominales", "Abdominales", "abdominales.png"));
-        this.muscleList.add(new Muscle("abductores", "Abductores", "abductores.png"));
-        this.muscleList.add(new Muscle("cuadriceps", "Cuadriceps", "abductores.png"));
-        this.muscleList.add(new Muscle("biceps", "Biceps", "abductores.png"));
-        this.muscleList.add(new Muscle("hombros", "Hombros", "abductores.png"));
+        this.muscleList.add(new Muscle("abdominales", "Abdominales", "abdominales"));
+        this.muscleList.add(new Muscle("cuadriceps", "Cuadriceps", "cuadriceps"));
+        this.muscleList.add(new Muscle("hombros", "Hombros", "hombros"));
+        this.muscleList.add(new Muscle("biceps", "Biceps", "biceps"));
+        this.muscleList.add(new Muscle("pecho", "Pecho", "pecho"));
 
     }
 

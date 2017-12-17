@@ -75,12 +75,6 @@ public class MusclesDrawFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.muscles_draw_fragment, container, false);
-      /*  imageMapViewFront = v.findViewById(R.id.front_side_img);
-
-        imageMapViewFront.setAdapter(new MusclesAdapter(pointsFront, this.getContext()));
-
-        // Set ImageMapView check tap location and only trigger select if visible pixel is hit
-        imageMapViewFront.setAllowTransparent(false);*/
         imageMapViewNew = v.findViewById(R.id.front_side_img);
         imageMapViewNew.setAllowTransparent(false);
 
@@ -123,6 +117,13 @@ public class MusclesDrawFragment extends Fragment {
                             BitmapUtils.resAsBitmap(ContextCompat.getDrawable(getActivity().getApplicationContext(), R.drawable.shoulders))));
                     break;
 
+                case "Pecho":
+
+                    pointsFront.add(new MuscleItem("Pecho", new PointF(0.500f, 0.230f),
+                            BitmapUtils.resAsBitmap(ContextCompat.getDrawable(getActivity().getApplicationContext(), R.drawable.chest_col)),
+                            BitmapUtils.resAsBitmap(ContextCompat.getDrawable(getActivity().getApplicationContext(), R.drawable.chest))));
+                    break;
+
             }
 
         }
@@ -130,18 +131,6 @@ public class MusclesDrawFragment extends Fragment {
 
         imageMapViewNew.setAdapter(new MusclesDrawAdapter(pointsFront, getActivity()));
 
-       /*   pointsBack = new ArrayList<>();
-
-      pointsBack.add(new MuscleItem("Calves", new PointF(0.420f, 0.780f), null, null));
-        pointsBack.add(new MuscleItem("Head", new PointF(0.5f, 0.074f), null, null));
-        pointsBack.add(new MuscleItem("Finger", new PointF(0.82f, 0.530f), null, null));
-        pointsBack.add(new MuscleItem("Wrist", new PointF(0.19f, 0.47f), null, null));
-        pointsBack.add(new MuscleItem("Hand", new PointF(0.19f, 0.53f), null, null));
-        pointsBack.add(new MuscleItem("Back", new PointF(0.5f, 0.35f), null, null));
-        pointsBack.add(new MuscleItem("Ankle", new PointF(0.43f, 0.92f), null, null));
-        pointsBack.add(new MuscleItem("Foot", new PointF(0.60f, 0.96f), null, null));
-        pointsBack.add(new MuscleItem("Gluts", new PointF(0.54f, 0.48f), null, null));
-  */
     }
 
     public void UpdateMuscleDraw(String[] data) {

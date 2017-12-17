@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,7 +22,7 @@ public class ExerciseListFragment extends Fragment implements RecyclerViewExerci
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.exercise_list_fragment, container, false);
-        recyclerView = (RecyclerView) v.findViewById(R.id.exercise_list);
+        recyclerView = v.findViewById(R.id.exercise_list);
         return v;
 
     }
@@ -31,10 +30,6 @@ public class ExerciseListFragment extends Fragment implements RecyclerViewExerci
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-    /*	nombreReceta = (TextView) getView().findViewById(R.id.nombreReceta);
-		imagenDeReceta = (ImageView) getView().findViewById(R.id.imagenDeReceta);
-		infoReceta = (TextView) getView().findViewById(R.id.infoReceta);*/
-
 
         AppMediador appMediador = (AppMediador) this.getActivity().getApplication();
         appMediador.setExerciseListFragment(this);
@@ -64,11 +59,7 @@ public class ExerciseListFragment extends Fragment implements RecyclerViewExerci
         // crea un adaptador
         RecyclerViewExerciseAdapter adapter = new RecyclerViewExerciseAdapter(data, this, this);
         recyclerView.setAdapter(adapter);
-        if (data != null && data.length != 0) {
-            ItemTouchHelper.Callback callback = new SimpleItemTouchHelperCallback(adapter);
-            ItemTouchHelper touchHelper = new ItemTouchHelper(callback);
-            touchHelper.attachToRecyclerView(recyclerView);
-        }
+
     }
 
 

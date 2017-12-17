@@ -3,7 +3,6 @@ package damian.eiranova.santamaria.muxcler.main_activity.view;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -19,8 +18,8 @@ import damian.eiranova.santamaria.muxcler.R;
 import damian.eiranova.santamaria.muxcler.exercise_detail.ExerciseDetail;
 import damian.eiranova.santamaria.muxcler.exercise_list.view.ExerciseListFragment;
 import damian.eiranova.santamaria.muxcler.main_activity.presenter.IMainPresenter;
-import damian.eiranova.santamaria.muxcler.muscle_selection.muscles_tab_container.view.TabFragment;
 import damian.eiranova.santamaria.muxcler.muscle_selection.muscles_list.view.MuscleMasterListFragment;
+import damian.eiranova.santamaria.muxcler.muscle_selection.muscles_tab_container.view.TabFragment;
 
 public class MainView extends AppCompatActivity
         implements IMainView, NavigationView.OnNavigationItemSelectedListener, MuscleMasterListFragment.ListenFragment, ExerciseListFragment.ListenExerciseFragment {
@@ -31,6 +30,7 @@ public class MainView extends AppCompatActivity
     private MuscleMasterListFragment fragmentoMaestro;
     private ExerciseListFragment exerciseListFragment;
     private ExerciseDetail exerciseDetailFragment;
+    private TabFragment tabFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,14 +46,6 @@ public class MainView extends AppCompatActivity
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-       /* //FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });*/
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -73,17 +65,7 @@ public class MainView extends AppCompatActivity
                     .add(R.id.main_fragment_container, musclerMenuFragment)
                     .commit();
         } else {
-            // Si el layout no es de panel único (es una tableta) se permiten más de un fragmento
-            // por tanto, se crean los dos fragmentos y se añaden a sus layouts según el xml sw600dp
-        /*    fragmentoMaestro = new FragmentoMaestro();
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.contenedor_lista, fragmentoMaestro)
-                    .commit();
 
-            fragmentoDetalle = new FragmentoDetalle();
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.contenedor_detalle, fragmentoDetalle)
-                    .commit();*/
         }
     }
 
@@ -102,8 +84,10 @@ public class MainView extends AppCompatActivity
                             .commit();
                 } else if (findViewById(R.id.exercise_list) != null && findViewById(R.id.exercise_list).getVisibility() == View.VISIBLE) {
                     exerciseListFragment = null;
+                    if (tabFragment == null) {
+                        tabFragment = new TabFragment();
+                    }
 
-                    Fragment tabFragment = new TabFragment();
                     getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment_container, tabFragment)
                             .addToBackStack(null)
                             .commit();
@@ -113,6 +97,7 @@ public class MainView extends AppCompatActivity
                     mainPresenter.getExerciseListOfCurrentMuscle();
 
                 } else {
+                    tabFragment = null;
                     MuxclerMenuFragment musclerMenuFragment = new MuxclerMenuFragment();
                     getSupportFragmentManager().beginTransaction()
                             .replace(R.id.main_fragment_container, musclerMenuFragment)
@@ -156,8 +141,9 @@ public class MainView extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_guide) {
+            exerciseDetailFragment=null;
             exerciseListFragment = null;
-            Fragment tabFragment = new TabFragment();
+            tabFragment = new TabFragment();
             getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment_container, tabFragment)
                     .addToBackStack(null)
                     .commit();
@@ -179,8 +165,11 @@ public class MainView extends AppCompatActivity
 
     @Override
     public void loadTabFragment() {
+        exerciseDetailFragment = null;
         exerciseListFragment = null;
-        Fragment tabFragment = new TabFragment();
+        if (tabFragment == null) {
+            tabFragment = new TabFragment();
+        }
         getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment_container, tabFragment)
                 .addToBackStack(null)
                 .commit();
@@ -190,7 +179,6 @@ public class MainView extends AppCompatActivity
     @Override
     protected void onStart() {
         super.onStart();
-        // TODO Solicitar al presentador que recupere los datos desde el modelo.
 
 
     }
@@ -198,7 +186,6 @@ public class MainView extends AppCompatActivity
     @Override
     protected void onResume() {
         super.onResume();
-        // TODO Solicitar al presentador que recupere los datos desde el modelo.
 
 
     }
@@ -209,16 +196,7 @@ public class MainView extends AppCompatActivity
         appMediador.removeMainPresenter();
     }
 
-    @Override
-    public void UpdateMasterMuscleList(Object data) {
-        //fragmentoMaestro.createList((String[]) data);
 
-        //TODO: Dentro del método actualizarMaestro(Object[] datos), si es una pantalla multi-panel, presentar
-        // el detalle de la primera receta.
-      /*  if (findViewById(R.id.contenedorDeFragmentos) == null) {
-            presentadorPrincipal.obtenerDetalle(0);*/
-
-    }
 
     @Override
     public void onMuscleSelected(int posicion) {
@@ -239,22 +217,23 @@ public class MainView extends AppCompatActivity
     private void loadExerciseDetailFragment() {
         if (exerciseDetailFragment == null) {
             exerciseDetailFragment = new ExerciseDetail();
+        }
+        if (findViewById(R.id.exercise_detail_land) == null) {
+            // se crea el fragmento maestro y se añade al contenedor de fragmentos
+            //fragmentoMaestro = new MuscleMasterListFragment();
 
-            if (findViewById(R.id.exercise_detail_land) == null) {
-                // se crea el fragmento maestro y se añade al contenedor de fragmentos
-                //fragmentoMaestro = new MuscleMasterListFragment();
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.main_fragment_container, exerciseDetailFragment)
+                    .addToBackStack(null)
+                    .commit();
+            getSupportFragmentManager().executePendingTransactions();
 
-                getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.main_fragment_container, exerciseDetailFragment)
-                        .addToBackStack(null)
-                        .commit();
-                getSupportFragmentManager().executePendingTransactions();
-
-            }
         }
     }
 
+
     private void loadExerciseListFragment() {
+        exerciseDetailFragment = null;
         if (exerciseListFragment == null) {
             exerciseListFragment = new ExerciseListFragment();
         }
@@ -274,7 +253,7 @@ public class MainView extends AppCompatActivity
 
 
     public void showConfirmationSnack(final String muscleName) {
-        Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content), "Desea visualizar ejercicios para " + muscleName + "?", 10000)
+        Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content), "Desea visualizar ejercicios para " + muscleName + "?", 5000)
                 .setAction("SI", new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {

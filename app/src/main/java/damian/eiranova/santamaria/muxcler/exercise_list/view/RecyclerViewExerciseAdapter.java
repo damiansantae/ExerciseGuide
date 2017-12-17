@@ -14,7 +14,7 @@ import damian.eiranova.santamaria.muxcler.exercise_list.presenter.ExerciseListPr
 
 
 public class RecyclerViewExerciseAdapter extends RecyclerView.Adapter<RecyclerViewExerciseAdapter.FilaViewHolder>
-        implements IItemTouchHelperAdapter {
+        {
 
     private Exercise[] items;
     private SelectionListener listener;
@@ -29,19 +29,11 @@ public class RecyclerViewExerciseAdapter extends RecyclerView.Adapter<RecyclerVi
     }
 
 
-    @Override
-    public void onItemDismiss(int position) {
-        //Log.d("adaptador longitud"," "+ items.length);
-        for (int i = position; i < items.length - 1; i++) {
-            items[i] = items[i + 1];
-        }
-        items[items.length - 1] = null;
-        notifyItemRemoved(position);
-    }
+
 
 
     public interface SelectionListener {
-        public void onClick(FilaViewHolder fvh, String posicion);
+         void onClick(FilaViewHolder fvh, String posicion);
     }
 
     @Override

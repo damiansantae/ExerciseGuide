@@ -53,25 +53,24 @@ public class TabFragment extends Fragment {
 
     private void setViewPager() {
 
-        mViewPager = v.findViewById(R.id.muscle_selection_tab);
-        mViewPagerAdapter = new ViewPagerAdapter(getChildFragmentManager());
-        mViewPager.setAdapter(mViewPagerAdapter);
+            mViewPager = v.findViewById(R.id.muscle_selection_tab);
+            mViewPagerAdapter = new ViewPagerAdapter(getChildFragmentManager());
+            mViewPager.setAdapter(mViewPagerAdapter);
 
-        mTabLayout = (TabLayout) v.findViewById(R.id.tab);
-        mTabLayout.setupWithViewPager(mViewPager);
+            mTabLayout =  v.findViewById(R.id.tab);
+            mTabLayout.setupWithViewPager(mViewPager);
+
+
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        // TODO Solicitar al presentador que recupere los datos desde el modelo.
-        mainPresenter.getMuscleMasterListData();
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        // TODO Solicitar al presentador que recupere los datos desde el modelo.
         mainPresenter.getMuscleMasterListData();
 
     }
@@ -79,7 +78,7 @@ public class TabFragment extends Fragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        // appMediador.removeMainPresenter();
+        appMediador.removeMainPresenter();
     }
 
 

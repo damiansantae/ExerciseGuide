@@ -35,13 +35,12 @@ public class AppMediador extends Application {
 
     // constantes de comunicación, almacenamiento y petición
     public static final String MUSCLE_LIST_KEY = "muscleList";
-    public static final String NOTIFY_DATA_MUSCLELIST_READY = "damian.eiranova.santamaria.NOTIFY_DATA_MUSCLELIST_READY";
     public static final String EXERCISE_LIST_KEY = "exerciseList";
     public static final String NOTIFY_DATA_EXERCISE_LIST_READY = "damian.eiranova.santamaria.NOTIFY_DATA_EXERCISE_LIST_READY";
 
     public static final String EXERCISE_DETAIL_KEY = "exerciseDetail";
     public static final String NOTIFY_DETAIL_DATA_EXERCISE_READY = "damian.eiranova.santamaria.NOTIFY_DETAIL_DATA_EXERCISE_READY";
-    public static final String NOTIFY_DATA_MUSCLELIST_READY2 = "damian.eiranova.santamaria.NOTIFY_DATA_MUSCLELIST_READY2";
+    public static final String NOTIFY_DATA_MUSCLELIST_READY = "damian.eiranova.santamaria.NOTIFY_DATA_MUSCLELIST_READY";
 
 
     public static AppMediador getInstance() {

@@ -3,13 +3,13 @@ package damian.eiranova.santamaria.muxcler.muscle_selection.muscles_list.view;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import damian.eiranova.santamaria.muxcler.AppMediador;
 import damian.eiranova.santamaria.muxcler.R;
+import damian.eiranova.santamaria.muxcler.main_activity.model.Muscle;
 
 public class MuscleMasterListFragment extends android.support.v4.app.Fragment
         implements RecyclerViewAdapter.SeleccionListener {
@@ -38,7 +38,7 @@ public class MuscleMasterListFragment extends android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.muscles_list_fragment, container, false);
-        recyclerView = (RecyclerView) v.findViewById(R.id.master_list);
+        recyclerView = v.findViewById(R.id.master_list);
         return v;
     }
 
@@ -60,21 +60,17 @@ public class MuscleMasterListFragment extends android.support.v4.app.Fragment
         listener = null;
     }
 
-    public void createList(String[] data) {
+    public void createList(Muscle[] data) {
         if (data == null) {
             return;
         }
         // crea un adaptador
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(data, this);
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(data, this, this);
         recyclerView.setAdapter(adapter);
-        if (data != null && data.length != 0) {
-            ItemTouchHelper.Callback callback = new SimpleItemTouchHelperCallback(adapter);
-            ItemTouchHelper touchHelper = new ItemTouchHelper(callback);
-            touchHelper.attachToRecyclerView(recyclerView);
-        }
+
     }
 
-    public void UpdateMasterMuscleList(String[] data) {
+    public void UpdateMasterMuscleList(Muscle[] data) {
         createList(data);
     }
 

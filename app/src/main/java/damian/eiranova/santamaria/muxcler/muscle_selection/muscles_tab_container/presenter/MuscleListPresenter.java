@@ -25,21 +25,23 @@ public class MuscleListPresenter {
 
         @Override
         public void onReceive(Context context, Intent intent) {
-            if (intent.getAction().equals(AppMediador.NOTIFY_DATA_MUSCLELIST_READY2)) {
+            if (intent.getAction().equals(AppMediador.NOTIFY_DATA_MUSCLELIST_READY)) {
                 ArrayList<Muscle> muscleList = (ArrayList<Muscle>) intent.getSerializableExtra(AppMediador.MUSCLE_LIST_KEY);
-                String[] data = new String[muscleList.size()];
+                String[] dataNames = new String[muscleList.size()];
+                Muscle[] data = new Muscle[muscleList.size()];
                 for (int i = 0; i < muscleList.size(); i++) {
-                    data[i] = muscleList.get(i).getMuscleName();
+                    dataNames[i] = muscleList.get(i).getMuscleName();
+                    data[i] = muscleList.get(i);
                 }
                 AppMediador.getInstance().getMusclerListFragment().UpdateMasterMuscleList(data);
-                AppMediador.getInstance().getMuscleDrawFragment().UpdateMuscleDraw(data);
+                AppMediador.getInstance().getMuscleDrawFragment().UpdateMuscleDraw(dataNames);
             }
         }
     };
 
 
     public void getMuscleMasterListData() {
-        AppMediador.getInstance().registerReceiver(notificationReceiver, AppMediador.NOTIFY_DATA_MUSCLELIST_READY2);
-        mainModel.getMuclerListData2();
+        AppMediador.getInstance().registerReceiver(notificationReceiver, AppMediador.NOTIFY_DATA_MUSCLELIST_READY);
+        mainModel.getMusclesListData();
     }
 }

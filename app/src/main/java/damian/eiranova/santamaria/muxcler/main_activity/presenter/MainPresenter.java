@@ -30,21 +30,15 @@ public class MainPresenter implements IMainPresenter {
 
         @Override
         public void onReceive(Context context, Intent intent) {
-            if (intent.getAction().equals(AppMediador.NOTIFY_DATA_MUSCLELIST_READY)) {
-                ArrayList<Muscle> muscleList = (ArrayList<Muscle>) intent.getSerializableExtra(AppMediador.MUSCLE_LIST_KEY);
-                String[] data = new String[muscleList.size()];
-                for (int i = 0; i < muscleList.size(); i++) {
-                    data[i] = muscleList.get(i).getMuscleName();
-                }
-                AppMediador.getInstance().getMainView().UpdateMasterMuscleList(data);
-            } else if (intent.getAction().equals(AppMediador.NOTIFY_DATA_EXERCISE_LIST_READY)) {
+
+            if (intent.getAction().equals(AppMediador.NOTIFY_DATA_EXERCISE_LIST_READY)) {
                 ArrayList<Exercise> exerciseList = (ArrayList<Exercise>) intent.getSerializableExtra(AppMediador.EXERCISE_LIST_KEY);
                 Exercise[] data = new Exercise[exerciseList.size()];
                 for (int i = 0; i < exerciseList.size(); i++) {
                     data[i] = exerciseList.get(i);
                 }
                 AppMediador.getInstance().getExerciseListFragment().UpdateExerciseList(data);
-            }else if (intent.getAction().equals(AppMediador.NOTIFY_DETAIL_DATA_EXERCISE_READY)){
+            } else if (intent.getAction().equals(AppMediador.NOTIFY_DETAIL_DATA_EXERCISE_READY)) {
                 Exercise exercise = (Exercise) intent.getSerializableExtra(AppMediador.EXERCISE_DETAIL_KEY);
                 AppMediador.getInstance().getExerciseDetailFragment().UpdateExerciseDetail(exercise);
             }

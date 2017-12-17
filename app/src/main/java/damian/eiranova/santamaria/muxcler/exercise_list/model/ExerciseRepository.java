@@ -12,11 +12,28 @@ public class ExerciseRepository {
 
     private ExerciseRepository() {
         this.exerciseList = new ArrayList<Exercise>();
-        this.exerciseList.add(new Exercise("abdominales_suspension", "Abdominales Con Piernas En Suspension", "abs", false, 1, "abdominales","oxJj5FoBycQ"));
-        this.exerciseList.add(new Exercise("abdominales_suspension", "Abdominales Con Piernas En Suspension", "abs", true, 2, "abdominales","oxJj5FoBycQ"));
-        this.exerciseList.add(new Exercise("abdominales_suspension", "Abdominales Con Piernas En Suspension", "abs", false, 3, "abdominales","oxJj5FoBycQ"));
-        this.exerciseList.add(new Exercise("abdominales_suspension", "Abdominales Con Piernas En Suspension", "abs", true, 4, "abdominales","oxJj5FoBycQ"));
-        this.exerciseList.add(new Exercise("abdominales_suspension", "C mamut", "abs", true, 0, "pecho","oxJj5FoBycQ"));
+        //Abdominales
+        this.exerciseList.add(new Exercise("contracciones_piernas_elevadas", "Contracciones piernas elevadas", "abdominales_piernas_elevadas", false, 1, "abdominales", "gEyuIEBxwes"));
+        this.exerciseList.add(new Exercise("abdominales_suspension", "Elevación de piernas", "elevacion_piernas", false, 2, "abdominales", "4oYU_1HjbtM"));
+        this.exerciseList.add(new Exercise("abdominales_suspension", "Encogimientos polea", "encogimientos_polea", true, 1, "abdominales", "k37lE5Vf4s0"));
+
+        //Hombros
+        this.exerciseList.add(new Exercise("abdominales_suspension", "Vuelos deltoides posterior", "vuelos_deltoides", true, 3, "hombros", "oxJj5FoBycQ"));
+
+        //Biceps
+        this.exerciseList.add(new Exercise("abdominales_suspension", "Banco Scott con barra", "banco_scott", true, 2, "biceps", "4oYU_1HjbtM"));
+        this.exerciseList.add(new Exercise("abdominales_suspension", "Chin-up", "chin_up", false, 4, "biceps", "_71FpEaq-fQ"));
+        this.exerciseList.add(new Exercise("abdominales_suspension", "Curl concentrado", "curl_concentrado", true, 2, "biceps", "8B0mY3gknoc"));
+        this.exerciseList.add(new Exercise("abdominales_suspension", "Brazos en cruz con polea alta", "curl_polea_baja", true, 3, "biceps", "wimEw9mhaEI"));
+
+        //Pecho
+        this.exerciseList.add(new Exercise("abdominales_suspension", "Press de banca", "press_banca", true, 1, "pecho", "ICaZxO7RmKs"));
+        this.exerciseList.add(new Exercise("abdominales_suspension", "Flexiones diamante", "flexiones_diamante", false, 3, "pecho", "IBLAi8s-4Lg"));
+        this.exerciseList.add(new Exercise("abdominales_suspension", "PButterfly (contracción)", "butterlfly", true, 0, "pecho", "M3dDJlZwxxs"));
+
+        //Cuadriceps
+        this.exerciseList.add(new Exercise("Prensa cuadriceps", "Prensa cuadriceps", "prensa_cuadicept", true, 1, "cuadriceps", "7LhtUL3VPAQ"));
+        this.exerciseList.add(new Exercise("Zancadas", "Zancadas", "zancadas", true, 0, "cuadriceps", "qfKHl9_EvWc"));
 
 
     }

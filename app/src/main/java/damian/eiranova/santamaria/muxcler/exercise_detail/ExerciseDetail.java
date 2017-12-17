@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.youtube.player.YouTubeInitializationResult;
@@ -21,6 +22,7 @@ public class ExerciseDetail extends Fragment implements YouTubePlayer.OnInitiali
 
     private static final int RECOVERY_REQUEST = 1;
     private YouTubePlayerSupportFragment youTubePlayerFragment;
+    private TextView exerciseName;
     private String videoUrl;
 
     @Override
@@ -28,6 +30,7 @@ public class ExerciseDetail extends Fragment implements YouTubePlayer.OnInitiali
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.exercise_detail, container, false);
         youTubePlayerFragment = (YouTubePlayerSupportFragment) getChildFragmentManager().findFragmentById(R.id.video_fragment);
+        exerciseName = v.findViewById(R.id.exercise_name_detail);
         return v;
 
     }
@@ -35,11 +38,6 @@ public class ExerciseDetail extends Fragment implements YouTubePlayer.OnInitiali
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-    /*	nombreReceta = (TextView) getView().findViewById(R.id.nombreReceta);
-        imagenDeReceta = (ImageView) getView().findViewById(R.id.imagenDeReceta);
-		infoReceta = (TextView) getView().findViewById(R.id.infoReceta);*/
-
-
         AppMediador appMediador = (AppMediador) this.getActivity().getApplication();
         appMediador.setExerciseDetailFragment(this);
     }
@@ -72,6 +70,7 @@ public class ExerciseDetail extends Fragment implements YouTubePlayer.OnInitiali
 
     public void UpdateExerciseDetail(Exercise exercise) {
         this.videoUrl = exercise.getExerciseVideoUrl();
+        this.exerciseName.setText(exercise.getExerciseName());
         loadVideo();
 
 

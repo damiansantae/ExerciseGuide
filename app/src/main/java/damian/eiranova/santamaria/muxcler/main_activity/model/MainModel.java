@@ -25,10 +25,10 @@ public class MainModel implements IMainModel {
 
 
     @Override
-    public void getMuclerListData2() {
+    public void getMusclesListData() {
         Bundle extras = new Bundle();
         extras.putSerializable(AppMediador.MUSCLE_LIST_KEY,muscleRepository.getMuscleList());
-        AppMediador.getInstance().sendBroadcast(AppMediador.NOTIFY_DATA_MUSCLELIST_READY2,extras);
+        AppMediador.getInstance().sendBroadcast(AppMediador.NOTIFY_DATA_MUSCLELIST_READY,extras);
 
     }
 }
