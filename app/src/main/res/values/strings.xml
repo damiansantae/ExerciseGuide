@@ -1,12 +1,12 @@
 <resources>
     <string name="app_name">XPORT</string>
 
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="navigation_drawer_open">Abrir menú de navegación</string>
+    <string name="navigation_drawer_close"> Cerrar menú de navegación</string>
 
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Ajustes</string>
 
-    <string name="player_error">Error iniciand video: %s</string>
+    <string name="player_error">Error iniciando video: %s</string>
     <string name="seek_to">Saltar a  </string>
     <string name="seek_to_hint">Segundos</string>
 
@@ -24,30 +24,6 @@
     sapien finibus at. Ut iaculis augue non efficitur efficitur. Proin id tincidunt neque. Sed
     mollis maximus tortor, quis feugiat magna sodales id. In mollis cursus nulla sit amet varius.
 
-    Praesent quis ullamcorper nisl. Curabitur rutrum sem sapien, ornare rhoncus ante ultrices quis.
-    Nulla facilisi. Cras congue nulla in lacus iaculis tincidunt. Vivamus ut molestie tortor, nec
-    mollis augue. Cras non risus sagittis, interdum diam in, aliquam est. Etiam aliquam orci quam,
-    id dictum nunc venenatis consectetur.
-
-    Duis semper imperdiet leo, eu dictum enim elementum vel. Donec non neque ut erat tempor
-    interdum. Vestibulum eget ultrices orci. Nunc ultrices egestas hendrerit. Pellentesque at mauris
-    vel turpis fermentum consequat. In lorem orci, aliquam id enim sed, aliquam convallis ligula.
-    Aenean massa nunc, aliquet in rhoncus eu, mollis non urna. Aliquam dictum, massa eu mollis
-    sagittis, dolor leo mattis mi, eget vulputate erat sem vel dolor. Pellentesque dapibus nec erat
-    ut blandit. Aliquam eu nunc quis lorem consequat lobortis in non ligula. Donec bibendum augue
-    libero, nec mattis sapien aliquet a. Mauris non fringilla ex. Mauris fermentum, ex et pharetra
-    ullamcorper, orci diam sodales elit, eget vulputate felis dui eu metus. In eleifend volutpat
-    sapien, eu elementum ante porttitor eleifend. Quisque hendrerit velit mauris, sed commodo enim
-    bibendum et.
-
-    In suscipit diam libero, et pellentesque purus pretium eget. Morbi sit amet tempus nulla. Donec
-    non magna non metus fringilla vulputate. Curabitur facilisis ex lectus, sit amet condimentum
-    velit maximus vel. Etiam tortor turpis, consectetur in tincidunt ut, lacinia a elit. Vestibulum
-    efficitur dolor neque, nec ornare ex molestie quis. Proin lacinia arcu lacus, quis auctor justo
-    scelerisque venenatis. Quisque metus orci, porttitor eget arcu quis, ultricies auctor lectus.
-    Mauris aliquet tincidunt ex ac ullamcorper. Donec eget commodo massa, ut tincidunt ipsum.
-
-
         Lorem ipsum dolor sit amet, consectetur adipiscing
     elit. Praesent sollicitudin ligula ut hendrerit euismod. Aenean in porttitor erat. Suspendisse
     vitae orci magna. Nulla maximus elit sed velit iaculis eleifend. Proin at arcu ut massa
@@ -62,27 +38,16 @@
     sapien finibus at. Ut iaculis augue non efficitur efficitur. Proin id tincidunt neque. Sed
     mollis maximus tortor, quis feugiat magna sodales id. In mollis cursus nulla sit amet varius.
 
-    Praesent quis ullamcorper nisl. Curabitur rutrum sem sapien, ornare rhoncus ante ultrices quis.
-    Nulla facilisi. Cras congue nulla in lacus iaculis tincidunt. Vivamus ut molestie tortor, nec
-    mollis augue. Cras non risus sagittis, interdum diam in, aliquam est. Etiam aliquam orci quam,
-    id dictum nunc venenatis consectetur.
 
-    Duis semper imperdiet leo, eu dictum enim elementum vel. Donec non neque ut erat tempor
-    interdum. Vestibulum eget ultrices orci. Nunc ultrices egestas hendrerit. Pellentesque at mauris
-    vel turpis fermentum consequat. In lorem orci, aliquam id enim sed, aliquam convallis ligula.
-    Aenean massa nunc, aliquet in rhoncus eu, mollis non urna. Aliquam dictum, massa eu mollis
-    sagittis, dolor leo mattis mi, eget vulputate erat sem vel dolor. Pellentesque dapibus nec erat
-    ut blandit. Aliquam eu nunc quis lorem consequat lobortis in non ligula. Donec bibendum augue
-    libero, nec mattis sapien aliquet a. Mauris non fringilla ex. Mauris fermentum, ex et pharetra
-    ullamcorper, orci diam sodales elit, eget vulputate felis dui eu metus. In eleifend volutpat
-    sapien, eu elementum ante porttitor eleifend. Quisque hendrerit velit mauris, sed commodo enim
-    bibendum et.
-
-    In suscipit diam libero, et pellentesque purus pretium eget. Morbi sit amet tempus nulla. Donec
-    non magna non metus fringilla vulputate. Curabitur facilisis ex lectus, sit amet condimentum
-    velit maximus vel. Etiam tortor turpis, consectetur in tincidunt ut, lacinia a elit. Vestibulum
-    efficitur dolor neque, nec ornare ex molestie quis. Proin lacinia arcu lacus, quis auctor justo
-    scelerisque venenatis. Quisque metus orci, porttitor eget arcu quis, ultricies auctor lectus.
-    Mauris aliquet tincidunt ex ac ullamcorper. Donec eget commodo massa, ut tincidunt ipsum.
     </string>
+    <string name="guide_name">Guía</string>
+    <string name="guide_description">Elige entre todos los ejercicios que te presentamos según el músculo que desees trabajar</string>
+    <string name="map_name">Map</string>
+    <string name="map_description">Busca o comparte lugares en los que poder realizar actividades físicas</string>
+    <string name="muxcler_name">MuXcler</string>
+    <string name="xrunner_name">XRunner</string>
+    <string name="kms_ranking_name">kms Ranking</string>
+    <string name="search_rute_name">Buscar ruta</string>
+    <string name="start_run_name">Empezar a correr</string>
+    <string name="stats_name">Estadísticas</string>
 </resources>

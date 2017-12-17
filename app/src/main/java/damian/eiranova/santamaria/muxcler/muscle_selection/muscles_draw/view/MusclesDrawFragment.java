@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 
 import com.zechassault.zonemap.util.BitmapUtils;
 import com.zechassault.zonemap.view.ImageMapView;
-import com.zechassault.zonemap.view.NoteImageView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,9 +18,8 @@ import java.util.List;
 import damian.eiranova.santamaria.muxcler.AppMediador;
 import damian.eiranova.santamaria.muxcler.R;
 import damian.eiranova.santamaria.muxcler.muscle_selection.muscles_draw.model.MuscleItem;
-import damian.eiranova.santamaria.muxcler.muscle_selection.muscles_tab_container.presenter.MuscleListPresenter;
 
-public class MusclesDrawFragment extends Fragment {
+public class MusclesDrawFragment extends Fragment implements IMuscleDrawFragment {
 
     /**
      * Front view items
@@ -29,26 +27,10 @@ public class MusclesDrawFragment extends Fragment {
     private List<MuscleItem> pointsFront;
 
     /**
-     * Back view items
-     */
-    private List<MuscleItem> pointsBack;
-
-    /**
-     * Back image map view
-     */
-    private NoteImageView imageMapViewBack;
-
-    /**
      * Front image map view
      */
-    private NoteImageView imageMapViewFront;
 
     private ImageMapView imageMapViewNew;
-
-    private MuscleListPresenter musclePresenter;
-
-
-    private AppMediador appMediador;
 
     public static MusclesDrawFragment newInstance() {
         return new MusclesDrawFragment();
@@ -57,18 +39,8 @@ public class MusclesDrawFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         AppMediador appMediador = (AppMediador) this.getActivity().getApplication();
         appMediador.setMuscleDrawFragment(this);
-
-
-     /*   imageMapViewBack = (NoteImageView) findViewById(R.id.imageMapView);
-        imageMapViewBack.setAdapter(new MusclesAdapter(pointsBack, this));
-        // Set ImageMapView check tap location and only trigger select if visible pixel is hit
-        imageMapViewBack.setAllowTransparent(false);
-*/
-
-
     }
 
     @Override
@@ -133,9 +105,9 @@ public class MusclesDrawFragment extends Fragment {
 
     }
 
+    @Override
     public void UpdateMuscleDraw(String[] data) {
         setUpData(data);
     }
-
 
 }

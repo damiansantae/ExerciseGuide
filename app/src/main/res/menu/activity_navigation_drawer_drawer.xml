@@ -4,57 +4,45 @@
     tools:showIn="navigation_view">
 
 
-    <item android:title="MuXcler">
+    <item android:title="@string/muxcler_name">
         <menu>
 
             <item
                 android:id="@+id/nav_guide"
                 android:icon="@drawable/upper_chest_training"
-                android:title="Guía" />
+                android:title="@string/guide_name" />
             <item
-                android:id="@+id/nav_gallery"
+                android:id="@+id/nav_map"
                 android:icon="@android:drawable/ic_dialog_map"
-                android:title=" Buscar Gimnasios" />
+                android:title="@string/map_name" />
 
         </menu>
 
 
     </item>
-    <item android:title="XRunner">
+    <item android:title="@string/xrunner_name">
         <menu>
             <item
-                android:id="@+id/navnav"
+                android:id="@+id/nav_ranking"
                 android:icon="@drawable/ranking_cup"
-                android:title="kms Ranking" />
+                android:title="@string/kms_ranking_name" />
             <item
-                android:id="@+id/navnavanava"
+                android:id="@+id/nav_search_rute"
                 android:icon="@drawable/car_race_circuit"
-                android:title="Buscar ruta" />
+                android:title="@string/search_rute_name" />
             <item
-                android:id="@+id/naannananaana"
+                android:id="@+id/nav_start_run"
                 android:icon="@drawable/running"
-                android:title="Empezar a correr" />
+                android:title="@string/start_run_name" />
             <item
-                android:id="@+id/njanjanka"
+                android:id="@+id/nav_stats"
                 android:icon="@drawable/bar_chart"
-                android:title="Estadísticas" />
+                android:title="@string/stats_name" />
 
         </menu>
 
 
     </item>
 
-    <item android:title="Communicate">
-        <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
-        </menu>
-    </item>
 
 </menu>

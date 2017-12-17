@@ -1,4 +1,4 @@
-package damian.eiranova.santamaria.muxcler;
+package damian.eiranova.santamaria.muxcler.muxcler_menu;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,16 +8,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import damian.eiranova.santamaria.muxcler.AppMediador;
+import damian.eiranova.santamaria.muxcler.R;
 import damian.eiranova.santamaria.muxcler.main_activity.view.IMainView;
 
 public class MuxclerMenuFragment extends Fragment implements View.OnClickListener {
 
     private IMainView mainView;
 
-    public static MuxclerMenuFragment newInstance() {
-
-        return new MuxclerMenuFragment();
-    }
 
     @Nullable
     @Override

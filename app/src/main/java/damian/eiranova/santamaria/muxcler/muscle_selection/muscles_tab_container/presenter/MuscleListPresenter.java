@@ -12,7 +12,7 @@ import damian.eiranova.santamaria.muxcler.main_activity.model.IMainModel;
 import damian.eiranova.santamaria.muxcler.main_activity.model.MainModel;
 import damian.eiranova.santamaria.muxcler.main_activity.model.Muscle;
 
-public class MuscleListPresenter {
+public class MuscleListPresenter implements IMuscleListPresenter {
 
 
     private IMainModel mainModel;
@@ -39,7 +39,7 @@ public class MuscleListPresenter {
         }
     };
 
-
+    @Override
     public void getMuscleMasterListData() {
         AppMediador.getInstance().registerReceiver(notificationReceiver, AppMediador.NOTIFY_DATA_MUSCLELIST_READY);
         mainModel.getMusclesListData();

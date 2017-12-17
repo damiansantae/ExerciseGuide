@@ -2,11 +2,11 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/muxcler_menu"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="damian.eiranova.santamaria.muxcler.main_activity.view.MainView"
-    android:id="@+id/muxcler_menu">
+    tools:context="damian.eiranova.santamaria.muxcler.main_activity.view.MainView">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -50,7 +50,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="Guía"
+                    android:text="@string/guide_name"
                     android:textStyle="bold" />
 
                 <View
@@ -64,7 +64,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:padding="5dp"
-                    android:text="Elige entre todos los ejercicios que te presentamos según el músculo que desees trabajar"
+                    android:text="@string/guide_description"
                     android:textColor="@color/darkGray" />
 
             </LinearLayout>
@@ -97,7 +97,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="Map"
+                    android:text="@string/map_name"
                     android:textStyle="bold" />
 
                 <View
@@ -111,7 +111,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:padding="5dp"
-                    android:text="Busca o comparte lugares en los que poder realizar actividades físicas"
+                    android:text="@string/map_description"
                     android:textColor="@color/darkGray" />
 
             </LinearLayout>

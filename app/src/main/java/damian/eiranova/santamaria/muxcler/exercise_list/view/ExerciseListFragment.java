@@ -12,7 +12,7 @@ import damian.eiranova.santamaria.muxcler.AppMediador;
 import damian.eiranova.santamaria.muxcler.R;
 import damian.eiranova.santamaria.muxcler.exercise_list.model.Exercise;
 
-public class ExerciseListFragment extends Fragment implements RecyclerViewExerciseAdapter.SelectionListener {
+public class ExerciseListFragment extends Fragment implements RecyclerViewExerciseAdapter.SelectionListener, IExerciseListFragment {
 
     private RecyclerView recyclerView;
     private ListenExerciseFragment listener;
@@ -62,7 +62,7 @@ public class ExerciseListFragment extends Fragment implements RecyclerViewExerci
 
     }
 
-
+    @Override
     public void UpdateExerciseList(Exercise[] data) {
         createList(data);
     }

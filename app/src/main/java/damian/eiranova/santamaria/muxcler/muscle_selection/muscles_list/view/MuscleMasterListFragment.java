@@ -12,7 +12,7 @@ import damian.eiranova.santamaria.muxcler.R;
 import damian.eiranova.santamaria.muxcler.main_activity.model.Muscle;
 
 public class MuscleMasterListFragment extends android.support.v4.app.Fragment
-        implements RecyclerViewAdapter.SeleccionListener {
+        implements RecyclerViewAdapter.SeleccionListener, IMuscleMasterListFragment {
 
     private RecyclerView recyclerView;
     private ListenFragment listener;
@@ -60,7 +60,7 @@ public class MuscleMasterListFragment extends android.support.v4.app.Fragment
         listener = null;
     }
 
-    public void createList(Muscle[] data) {
+    private void createList(Muscle[] data) {
         if (data == null) {
             return;
         }
@@ -70,6 +70,7 @@ public class MuscleMasterListFragment extends android.support.v4.app.Fragment
 
     }
 
+    @Override
     public void UpdateMasterMuscleList(Muscle[] data) {
         createList(data);
     }

@@ -13,7 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import damian.eiranova.santamaria.muxcler.AppMediador;
-import damian.eiranova.santamaria.muxcler.MuxclerMenuFragment;
+import damian.eiranova.santamaria.muxcler.muxcler_menu.MuxclerMenuFragment;
 import damian.eiranova.santamaria.muxcler.R;
 import damian.eiranova.santamaria.muxcler.exercise_detail.ExerciseDetail;
 import damian.eiranova.santamaria.muxcler.exercise_list.view.ExerciseListFragment;
@@ -70,6 +70,23 @@ public class MainView extends AppCompatActivity
     }
 
     @Override
+    protected void onStart() {
+        super.onStart();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        appMediador.removeMainPresenter();
+    }
+
+
+    @Override
     public void onBackPressed() {
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
@@ -114,16 +131,13 @@ public class MainView extends AppCompatActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.navigation_drawer, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
@@ -137,28 +151,21 @@ public class MainView extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
         int id = item.getItemId();
 
         if (id == R.id.nav_guide) {
-            exerciseDetailFragment=null;
+            exerciseDetailFragment = null;
             exerciseListFragment = null;
             tabFragment = new TabFragment();
             getSupportFragmentManager().beginTransaction().replace(R.id.main_fragment_container, tabFragment)
                     .addToBackStack(null)
                     .commit();
-            // Handle the camera action
 
-        } else if (id == R.id.nav_gallery) {
-
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_map) {
 
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
@@ -176,39 +183,20 @@ public class MainView extends AppCompatActivity
 
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-
-    }
 
     @Override
-    protected void onResume() {
-        super.onResume();
-
-
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        appMediador.removeMainPresenter();
-    }
-
-
-
-    @Override
-    public void onMuscleSelected(int posicion) {
+    public void onMuscleSelected(int position) {
         loadExerciseListFragment();
-        mainPresenter.getExerciseList(posicion);
+        mainPresenter.getExerciseList(position);
     }
 
+    @Override
     public void onMuscleClicked(String name) {
         loadExerciseListFragment();
         mainPresenter.getExerciseListOfMuscle(name);
     }
 
+    @Override
     public void onExerciseClicked(String name) {
         loadExerciseDetailFragment();
         mainPresenter.getExerciseDetail(name);
@@ -251,7 +239,7 @@ public class MainView extends AppCompatActivity
 
     }
 
-
+    @Override
     public void showConfirmationSnack(final String muscleName) {
         Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content), "Desea visualizar ejercicios para " + muscleName + "?", 5000)
                 .setAction("SI", new View.OnClickListener() {

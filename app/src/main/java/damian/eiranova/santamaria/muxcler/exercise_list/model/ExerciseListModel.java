@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import damian.eiranova.santamaria.muxcler.AppMediador;
 
-public class ExerciseListModel {
+public class ExerciseListModel implements IExerciseListModel{
 
     private static ExerciseListModel singleton = null;
     private ExerciseRepository exerciseRepository;
@@ -39,6 +39,7 @@ public class ExerciseListModel {
     }
 
 
+    @Override
     public void getExerciseListData(String muscleID) {
         this.muscleID = muscleID;
         Bundle extras = new Bundle();
@@ -47,6 +48,7 @@ public class ExerciseListModel {
 
     }
 
+    @Override
     public String getStarImageReference(int difficulty) {
         switch (difficulty) {
             case 0:
@@ -63,7 +65,7 @@ public class ExerciseListModel {
         return null;
     }
 
-
+    @Override
     public String getMachineImageReference(boolean needMachine) {
         if (needMachine) {
             return machineImages[NEED_MACHINE];

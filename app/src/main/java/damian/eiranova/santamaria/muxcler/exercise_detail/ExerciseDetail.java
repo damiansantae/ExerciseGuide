@@ -13,17 +13,18 @@ import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerSupportFragment;
 
 import damian.eiranova.santamaria.muxcler.AppMediador;
-import damian.eiranova.santamaria.muxcler.Config;
+import damian.eiranova.santamaria.muxcler.YoutubeApiConfig;
 import damian.eiranova.santamaria.muxcler.R;
 import damian.eiranova.santamaria.muxcler.exercise_list.model.Exercise;
 
 
-public class ExerciseDetail extends Fragment implements YouTubePlayer.OnInitializedListener {
+public class ExerciseDetail extends Fragment implements YouTubePlayer.OnInitializedListener, IExerciseDetail {
 
     private static final int RECOVERY_REQUEST = 1;
     private YouTubePlayerSupportFragment youTubePlayerFragment;
     private TextView exerciseName;
     private String videoUrl;
+    private YouTubePlayer myoutubePlayer;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -32,6 +33,7 @@ public class ExerciseDetail extends Fragment implements YouTubePlayer.OnInitiali
         youTubePlayerFragment = (YouTubePlayerSupportFragment) getChildFragmentManager().findFragmentById(R.id.video_fragment);
         exerciseName = v.findViewById(R.id.exercise_name_detail);
         return v;
+
 
     }
 
@@ -44,18 +46,23 @@ public class ExerciseDetail extends Fragment implements YouTubePlayer.OnInitiali
 
 
     private void loadVideo() {
+        if (myoutubePlayer != null) {
+            myoutubePlayer.loadVideo(videoUrl);
+        } else {
+            youTubePlayerFragment.initialize(YoutubeApiConfig.YOUTUBE_API_KEY, this);
+
+        }
 
 
-        youTubePlayerFragment.initialize(Config.YOUTUBE_API_KEY, this);
     }
 
     @Override
     public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean wasRestored) {
         youTubePlayer.setFullscreenControlFlags(YouTubePlayer.FULLSCREEN_FLAG_CUSTOM_LAYOUT);
         if (!wasRestored) {
-            youTubePlayer.loadVideo(this.videoUrl);
+            this.myoutubePlayer = youTubePlayer;
+            myoutubePlayer.loadVideo(this.videoUrl);
         }
-
     }
 
     @Override
@@ -68,6 +75,7 @@ public class ExerciseDetail extends Fragment implements YouTubePlayer.OnInitiali
         }
     }
 
+    @Override
     public void UpdateExerciseDetail(Exercise exercise) {
         this.videoUrl = exercise.getExerciseVideoUrl();
         this.exerciseName.setText(exercise.getExerciseName());

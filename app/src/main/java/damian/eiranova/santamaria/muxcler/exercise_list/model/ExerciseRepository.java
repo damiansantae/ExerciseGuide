@@ -57,10 +57,6 @@ public class ExerciseRepository {
     }
 
 
-    public ArrayList<Exercise> getAllExercises() {
-        return exerciseList;
-
-    }
 
     public Exercise getExerciseDetail(String name) {
         for (Exercise exercise :

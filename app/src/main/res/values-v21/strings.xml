@@ -76,4 +76,11 @@
     scelerisque venenatis. Quisque metus orci, porttitor eget arcu quis, ultricies auctor lectus.
     Mauris aliquet tincidunt ex ac ullamcorper. Donec eget commodo massa, ut tincidunt ipsum.
     </string>
+    <string name="guide_name">Guía</string>
+    <string name="guide_description">Elige entre todos los ejercicios que te presentamos según el músculo que desees trabajar</string>
+    <string name="map_name">Map</string>
+    <string name="map_description">Busca o comparte lugares en los que poder realizar actividades físicas</string>
+    <string name="muxcler_name">MuXcler</string>
+    <string name="xrunner_name">XRunner</string>
+    <string name="stats_name">Estadísticas</string>
 </resources>

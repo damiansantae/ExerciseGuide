@@ -33,7 +33,9 @@ public class RecyclerViewExerciseAdapter extends RecyclerView.Adapter<RecyclerVi
 
 
     public interface SelectionListener {
-         void onClick(FilaViewHolder fvh, String posicion);
+
+
+        void onClick(FilaViewHolder fvh, String posicion);
     }
 
     @Override

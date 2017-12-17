@@ -5,6 +5,7 @@ public interface IMainView {
     void loadTabFragment();
 
 
+    void onMuscleClicked(String name);
 
-
+    void showConfirmationSnack(String muscleName);
 }
